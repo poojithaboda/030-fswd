@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Converter</title>
+
+    <script>
+        function convertTemperature() {
+
+            let celsius = document.getElementById("temp").value;
+
+            if (celsius == "") {
+                alert("Please enter a temperature.");
+                return;
+            }
+
+            if (!/^-?\d+(\.\d+)?$/.test(celsius)) {
+                alert("Please enter numbers only.");
+                return;
+            }
+
+            celsius = parseFloat(celsius);
+
+            if (celsius < -50 || celsius > 150) {
+                alert("Temperature must be between -50 and 150 Celsius.");
+                return;
+            }
+
+            let fahrenheit = (celsius * 9 / 5) + 32;
+
+            document.getElementById("result").innerHTML =
+                "Temperature in Fahrenheit = " + fahrenheit.toFixed(2) + " °F";
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>Celsius to Fahrenheit Converter</h2>
+
+    <label>Enter Temperature in Celsius:</label>
+
+    <input type="text" id="temp">
+
+    <button onclick="convertTemperature()">
+        Convert
+    </button>
+
+    <h3 id="result"></h3>
+
+</body>
+</html>

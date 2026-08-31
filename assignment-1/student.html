@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Admission Form</title>
+
+    <script>
+        function validateForm() {
+
+            let id = document.getElementById("id").value;
+            let name = document.getElementById("name").value;
+            let dob = document.getElementById("dob").value;
+            let gender = document.getElementById("gender").value;
+            let email = document.getElementById("email").value;
+            let mobile = document.getElementById("mobile").value;
+            let course = document.getElementById("course").value;
+            let address = document.getElementById("address").value;
+            let parent = document.getElementById("parent").value;
+
+            if (id == "" || name == "" || dob == "" ||
+                gender == "" || email == "" || mobile == "" ||
+                course == "" || address == "" || parent == "") {
+
+                alert("Please fill all mandatory fields.");
+                return false;
+            }
+
+            if (!/^[A-Za-z ]+$/.test(name)) {
+                alert("Name should contain only alphabets.");
+                return false;
+            }
+
+            if (!/^[0-9]{10}$/.test(mobile)) {
+                alert("Mobile number must contain 10 digits.");
+                return false;
+            }
+
+            if (!/^[0-9]{10}$/.test(parent)) {
+                alert("Parent contact number must contain 10 digits.");
+                return false;
+            }
+
+            if (!/^[^ ]+@[^ ]+\.[a-z]{2,3}$/.test(email)) {
+                alert("Enter a valid email address.");
+                return false;
+            }
+
+            alert("Form submitted successfully!");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+
+    <h2>Student Admission Form</h2>
+
+    <form onsubmit="return validateForm()">
+
+        Student ID:
+        <input type="text" id="id"><br><br>
+
+        Name:
+        <input type="text" id="name"><br><br>
+
+        Date of Birth:
+        <input type="date" id="dob"><br><br>
+
+        Gender:
+        <select id="gender">
+            <option value="">Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select><br><br>
+
+        Email:
+        <input type="text" id="email"><br><br>
+
+        Mobile Number:
+        <input type="text" id="mobile"><br><br>
+
+        Course:
+        <select id="course">
+            <option value="">Select Course</option>
+            <option>CSE</option>
+            <option>ECE</option>
+            <option>EEE</option>
+            <option>IT</option>
+            <option>MECH</option>
+        </select><br><br>
+
+        Address:
+        <textarea id="address"></textarea><br><br>
+
+        Parent's Contact Number:
+        <input type="text" id="parent"><br><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+
+    </form>
+
+</body>
+</html>
